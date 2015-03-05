@@ -1,0 +1,36 @@
+{
+  "name": "LayoutSplitter",
+  "version": "1.0.0",
+  "description": "Prototype of a layout you can split by dragging/dropping components inside",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/chtefi/LayoutSplitter.git"
+  },
+  "author": "Stephane D.",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/chtefi/LayoutSplitter/issues"
+  },
+  "homepage": "https://github.com/chtefi/LayoutSplitter",
+  "dependencies": {
+    "lodash": "^3.3.1",
+    "react": "^0.13.0-rc2"
+  },
+  "devDependencies": {
+    "browserify": "^9.0.3",
+    "gulp": "^3.8.11",
+    "gulp-concat": "^2.5.2",
+    "gulp-less": "^3.0.1",
+    "gulp-livereload": "^3.8.0",
+    "less": "^2.4.0",
+    "livereload": "^0.3.6",
+    "reactify": "^1.0.0",
+    "uglifyify": "^3.0.1",
+    "vinyl-source-stream": "^1.0.0",
+    "watchify": "^2.4.0"
+  }
+}
