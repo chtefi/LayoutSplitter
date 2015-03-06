@@ -14,10 +14,10 @@ Open `build/client/index.html` in a browser.
 # Example 
 
 In 4 clicks, you can create the layout :
-![ScreenShot](https://raw.githubusercontent.com/chtefi/LayoutSplitter/master/help/custom_images_before.png)
+![ScreenShot](https://raw.githubusercontent.com/chtefi/LayoutSplitter/master/help/custom_images_before.PNG)
 
 Then, by dropping from the file explorer to each cell :
-![ScreenShot](https://raw.githubusercontent.com/chtefi/LayoutSplitter/master/help/images_before.png)
+![ScreenShot](https://raw.githubusercontent.com/chtefi/LayoutSplitter/master/help/custom_images.png)
 
 # TODO
 - Be able to export flat HTML structure (without the containers)
