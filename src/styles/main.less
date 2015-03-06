@@ -19,13 +19,38 @@ body {
 	.center;
 }
 
-// .widget--standalone {
-// 	background: url(http://www.online-image-editor.com//styles/2014/images/example_image.png) no-repeat;
-// 	background-size: cover;
-// 	will-change: transition;
-// }
+ .widget--standalone {
+ 	background: url(http://hdwallpapersfactory.com/wallpaper/cats_animals_little_kittens_kitten_kitty_cat_adorable_desktop_1920x1080_hd-wallpaper-782249.jpg) no-repeat;
+ 	background-size: cover;
+ 	will-change: transition;
+ 	background-position: top center;
+ }
 
-// .widget--standalone:hover {
-// 	outline: 10px solid white;
-// 	transform: scale(1.5);
-// }
+.widget--standalone:hover {
+	position: relative;
+	&:after {
+		content: '';
+		position: absolute;
+		top: 0;
+		left: 0;
+		right: 0;
+		bottom: 0;
+	}
+
+	&.widget--standalone--hovered--top:after {
+		border-top: 10px solid rgba(0,0,0,.2);
+	}
+
+	&.widget--standalone--hovered--bottom:after {
+		border-bottom: 10px solid rgba(0,0,0,.2);
+	}
+
+	&.widget--standalone--hovered--right:after {
+		border-right: 10px solid rgba(0,0,0,.2);
+	}
+
+	&.widget--standalone--hovered--left:after {
+		border-left: 10px solid rgba(0,0,0,.2);
+	}
+
+}

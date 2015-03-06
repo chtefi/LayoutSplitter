@@ -5,7 +5,8 @@ var color = require('color');
 var Widget = React.createClass({
 	getInitialState: function() {
 		return {
-			standalone: true
+			standalone: true,
+			hoveringDirection: null
 		};
 	},
 
@@ -45,6 +46,36 @@ var Widget = React.createClass({
 		}		
 	},
 
+	onMouseMove: function(e) {
+		var left = e.target.offsetLeft;
+		var top = e.target.offsetTop;
+		var width = e.target.offsetWidth;
+		var height = e.target.offsetHeight;
+
+		var mouseLeft = e.pageX;
+		var mouseTop = e.pageY;
+
+		var relativeLeft = (mouseLeft - left) / width;
+		var relativeTop = (mouseTop - top) / height;
+
+		var isTopRight = (relativeLeft > relativeTop);
+		var isBottomLeft = !isTopRight;
+		var isTopLeft = (1.0 - relativeLeft > relativeTop);
+		var isBottomRight = !isTopLeft;
+
+		if (isTopRight && isTopLeft) {
+			direction = 'top';
+		} else if (isBottomRight && isBottomLeft) {
+			direction = 'bottom';
+		} else if (isTopRight && isBottomRight) {
+			direction = 'right';
+		} else {
+			direction = 'left';
+		}
+
+		this.setState({ hoveringDirection: direction });
+	},
+
 	split: function() {
 		var subcolor = color(this.props.color).darken(.1).hexString();
 
@@ -69,7 +100,7 @@ var Widget = React.createClass({
 				flex: 1
 			};
 
-			return	<div className="widget widget--standalone" style={ styles } onMouseDown={ this.onMouseDown } onContextMenu={ function(e) { e.preventDefault(); e.stopPropagation(); } }>
+			return	<div className={ "widget widget--standalone" + (this.state.hoveringDirection ? ' widget--standalone--hovered--' + this.state.hoveringDirection : '') } style={ styles } onMouseDown={ this.onMouseDown } onMouseMove={ this.onMouseMove } onContextMenu={ function(e) { e.preventDefault(); e.stopPropagation(); } }>
 					</div>;
 		} else {
 			var styles = { 
