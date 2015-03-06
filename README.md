@@ -10,6 +10,13 @@ Open `build/client/index.html` in a browser.
 You can left-click on an area to split it. It will be split according to where your mouse is (top/bottom/right/left).
 You can right-click to cancel the split of an area.
 
+# Example 
+
+Before
+![ScreenShot](https://raw.githubusercontent.com/chtefi/LayoutSplitter/master/help/before.png)
+After
+![ScreenShot](https://raw.githubusercontent.com/chtefi/LayoutSplitter/master/help/after.png)
+
 # Todo
 - On hover, display an x in the area.
 - Add ability to drop images
