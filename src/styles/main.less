@@ -19,14 +19,14 @@ body {
 	.center;
 }
 
-.widget--standalone {
+.cell--standalone {
  	background-repeat: no-repeat;
  	background-size: cover;
  	will-change: transition;
  	background-position: top center;
  }
 
-.widget--standalone:hover {
+.cell--standalone:hover {
 	position: relative;
 	&:after {
 		content: '';
@@ -37,19 +37,19 @@ body {
 		bottom: 0;
 	}
 
-	&.widget--standalone--hovered--top:after {
+	&.cell--standalone--hovered--top:after {
 		border-top: 10px solid rgba(0,0,0,.2);
 	}
 
-	&.widget--standalone--hovered--bottom:after {
+	&.cell--standalone--hovered--bottom:after {
 		border-bottom: 10px solid rgba(0,0,0,.2);
 	}
 
-	&.widget--standalone--hovered--right:after {
+	&.cell--standalone--hovered--right:after {
 		border-right: 10px solid rgba(0,0,0,.2);
 	}
 
-	&.widget--standalone--hovered--left:after {
+	&.cell--standalone--hovered--left:after {
 		border-left: 10px solid rgba(0,0,0,.2);
 	}
 

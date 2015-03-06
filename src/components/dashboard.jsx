@@ -1,5 +1,5 @@
 var React = require('react');
-var Widget = require('./widget.jsx');
+var Cell = require('./cell.jsx');
 var _ = require('lodash');
 var color = require('color');
 
@@ -16,7 +16,7 @@ function closest(from, selector) {
 var Dashboard = React.createClass({
 	getInitialState: function() {
 		return {
-			widget: { root: true, color: color('white').darken(.1).hexString(), backgroundImage: ''  }
+			cell: { root: true, color: color('white').darken(.1).hexString(), backgroundImage: ''  }
 		}
 	},
 
@@ -39,7 +39,7 @@ var Dashboard = React.createClass({
 			backgroundColor: 'white'
 		};
 		return 	<div className="dashboard" style={styles} onDragOver={ this.onDragOver }>
-					<Widget { ...this.state.widget } />
+					<Cell { ...this.state.cell } />
 				</div>;
 	}
 });

@@ -2,7 +2,7 @@ var React = require('react');
 var _ = require('lodash');
 var color = require('color');
 
-var Widget = React.createClass({
+var Cell = React.createClass({
 	getInitialState: function() {
 		return {
 			standalone: true,
@@ -23,7 +23,7 @@ var Widget = React.createClass({
 			case 2: // right click to clear / unsplit
 				if (this.state.backgroundImage) {
 					this.setState({ backgroundImage: '' });
-				} else if (!this.props.root) { // don't unsplit the root widget
+				} else if (!this.props.root) { // don't unsplit the root cell
 					this.props.onUnsplit();
 				}
 				break;
@@ -121,7 +121,7 @@ var Widget = React.createClass({
 				flex: 1
 			};
 
-			return	<div 	className={ "widget widget--standalone" + (this.state.hoveringDirection ? ' widget--standalone--hovered--' + this.state.hoveringDirection : '') }
+			return	<div 	className={ "cell cell--standalone" + (this.state.hoveringDirection ? ' cell--standalone--hovered--' + this.state.hoveringDirection : '') }
 							style={ styles }
 							onMouseDown={ this.onMouseDown }
 							onMouseMove={ this.onMouseMove }
@@ -138,13 +138,13 @@ var Widget = React.createClass({
 
 			var separatorStyles = this.state.direction == 'row' ? { width: 5 } : { height: 5 };
 
-			return	<div className="widget widget--container" style={ styles }>
-						<Widget {...this.state.w1 } onUnsplit={ this.unsplit } />
+			return	<div className="cell cell--container" style={ styles }>
+						<Cell {...this.state.w1 } onUnsplit={ this.unsplit } />
 						<div style={ separatorStyles }></div>
-						<Widget {...this.state.w2 }  onUnsplit={ this.unsplit } />
+						<Cell {...this.state.w2 }  onUnsplit={ this.unsplit } />
 					</div>;
 		}
 	}
 });
 
-module.exports = Widget;
+module.exports = Cell;
