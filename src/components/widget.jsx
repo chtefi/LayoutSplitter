@@ -2,8 +2,6 @@ var React = require('react');
 var _ = require('lodash');
 var color = require('color');
 
-var previousDirection;
-
 var Widget = React.createClass({
 	getInitialState: function() {
 		return {
@@ -11,20 +9,54 @@ var Widget = React.createClass({
 		};
 	},
 
+	onMouseDown: function(e) {
+		e.preventDefault();
+		e.stopPropagation();
+
+		var left = e.target.offsetLeft;
+		var top = e.target.offsetTop;
+		var width = e.target.offsetWidth;
+		var height = e.target.offsetHeight;
+
+		var mouseLeft = e.pageX;
+		var mouseTop = e.pageY;
+
+		var relativeLeft = (mouseLeft - left) / width;
+		var relativeTop = (mouseTop - top) / height;
+
+		var isTopRight = (relativeLeft > relativeTop);
+		var isBottomLeft = !isTopRight;
+		var isTopLeft = (1.0 - relativeLeft > relativeTop);
+		var isBottomRight = !isTopLeft;
+
+		if (isTopRight && isTopLeft) {
+			direction = 'top';
+		} else if (isBottomRight && isBottomLeft) {
+			direction = 'bottom';
+		} else if (isTopRight && isBottomRight) {
+			direction = 'right';
+		} else {
+			direction = 'left';
+		}
+
+		switch (e.button) {
+			case 0: this.split(direction); break;
+			case 2: this.props.onUnsplit(); break;
+		}		
+	},
+
 	split: function() {
 		var subcolor = color(this.props.color).darken(.1).hexString();
 
 		this.setState({
 			standalone: false,
-			direction: (previousDirection != 'column' ? 'column': 'row'),
+			direction: (direction === 'top' || direction === 'bottom' ? 'column': 'row'),
 			w1: { color: subcolor },
 			w2: { color: subcolor }
 		});
-		previousDirection = (previousDirection != 'column' ? 'column' : 'row');
 	},
 
-	unsplit: function(e) {
-		e.preventDefault();
+	unsplit: function() {
 		this.setState({
 			standalone: true
 		});
@@ -37,7 +69,7 @@ var Widget = React.createClass({
 				flex: 1
 			};
 
-			return	<div className="widget" style={ styles } onClick={ this.split } onContextMenu={ this.props.onUnsplit }>
+			return	<div className="widget widget--standalone" style={ styles } onMouseDown={ this.onMouseDown } onContextMenu={ function(e) { e.preventDefault(); e.stopPropagation(); } }>
 					</div>;
 		} else {
 			var styles = { 
@@ -46,7 +78,7 @@ var Widget = React.createClass({
 				flexDirection: this.state.direction
 			};
 
-			var separatorStyles = this.state.direction == 'row' ? { width: 10 } : { height: 10 };
+			var separatorStyles = this.state.direction == 'row' ? { width: 5 } : { height: 5 };
 
 			return	<div className="widget widget--container" style={ styles }>
 						<Widget {...this.state.w1 } onUnsplit={ this.unsplit } />
