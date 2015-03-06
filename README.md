@@ -18,7 +18,6 @@ After
 ![ScreenShot](https://raw.githubusercontent.com/chtefi/LayoutSplitter/master/help/after.png)
 
 # Todo
-- On hover, display an x in the area.
 - Add ability to drop images
 - Display a treeview of the structure
 
