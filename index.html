@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html>
+
+  <head>
+    <meta charset='utf-8'>
+    <meta http-equiv="X-UA-Compatible" content="chrome=1">
+    <meta name="description" content="LayoutSplitter : Prototype of a layout you can split and drop components inside">
+
+    <link rel="stylesheet" type="text/css" media="screen" href="stylesheets/stylesheet.css">
+
+    <title>LayoutSplitter</title>
+  </head>
+
+  <body>
+
+    <!-- HEADER -->
+    <div id="header_wrap" class="outer">
+        <header class="inner">
+          <a id="forkme_banner" href="https://github.com/chtefi/LayoutSplitter">View on GitHub</a>
+
+          <h1 id="project_title">LayoutSplitter</h1>
+          <h2 id="project_tagline">Prototype of a layout you can split and drop components inside</h2>
+
+            <section id="downloads">
+              <a class="zip_download_link" href="https://github.com/chtefi/LayoutSplitter/zipball/master">Download this project as a .zip file</a>
+              <a class="tar_download_link" href="https://github.com/chtefi/LayoutSplitter/tarball/master">Download this project as a tar.gz file</a>
+            </section>
+        </header>
+    </div>
+
+    <!-- MAIN CONTENT -->
+    <div id="main_content_wrap" class="outer">
+      <section id="main_content" class="inner">
+        <h1>
+<a id="layoutsplitter-still-in-dev" class="anchor" href="#layoutsplitter-still-in-dev" aria-hidden="true"><span class="octicon octicon-link"></span></a>LayoutSplitter (still in dev)</h1>
+
+<p>Prototype of a layout composed of cells, which you can customized (by dropping a picture from your filesystem into it) using React (with a recursive component!) and pure HTML5 drag&amp;drop features.</p>
+
+<h1>
+<a id="to-start" class="anchor" href="#to-start" aria-hidden="true"><span class="octicon octicon-link"></span></a>To start</h1>
+
+<p><code>npm install &amp;&amp; gulp</code></p>
+
+<p>Open <code>build/client/index.html</code> in a browser.</p>
+
+<h1>
+<a id="interactions" class="anchor" href="#interactions" aria-hidden="true"><span class="octicon octicon-link"></span></a>Interactions</h1>
+
+<ul>
+<li>You can left-click on an area to split it. It will be split according to where your mouse is (top/bottom/right/left).</li>
+<li>You can drop an image from your file explorer to a cell</li>
+<li>You can right-click to remove the current image of a cell or to cancel the split of a cell (if there was no image).</li>
+</ul>
+
+<h1>
+<a id="example" class="anchor" href="#example" aria-hidden="true"><span class="octicon octicon-link"></span></a>Example</h1>
+
+<p>In 4 clicks, you can create the layout :
+<img src="https://raw.githubusercontent.com/chtefi/LayoutSplitter/master/help/custom_images_before.PNG" alt="ScreenShot"></p>
+
+<p>Then, by dropping from the file explorer to each cell :
+<img src="https://raw.githubusercontent.com/chtefi/LayoutSplitter/master/help/custom_images.png" alt="ScreenShot"></p>
+
+<h1>
+<a id="todo" class="anchor" href="#todo" aria-hidden="true"><span class="octicon octicon-link"></span></a>TODO</h1>
+
+<ul>
+<li>Be able to export flat HTML structure (without the containers)</li>
+<li>Be able to save the state to be able to reload it</li>
+<li>Display a treeview of this structure</li>
+</ul>
+      </section>
+    </div>
+
+    <!-- FOOTER  -->
+    <div id="footer_wrap" class="outer">
+      <footer class="inner">
+        <p class="copyright">LayoutSplitter maintained by <a href="https://github.com/chtefi">chtefi</a></p>
+        <p>Published with <a href="http://pages.github.com">GitHub Pages</a></p>
+      </footer>
+    </div>
+
+    
+
+  </body>
+</html>
