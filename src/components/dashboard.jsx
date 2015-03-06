@@ -5,33 +5,21 @@ var _ = require('lodash');
 var Dashboard = React.createClass({
 	getInitialState: function() {
 		return {
-			widgets: [
-				{
-					type: 'text',
-					props: {
-						text: 'blabla'
-					}
-				},
-				{
-					type: 'text',
-					props: {
-						text: 'fubar'
-					}
-				}
-			]
+			widget: { color: 'red' }
 		}
 	},
 
 	render: function() {
 		var styles = {
-			width: 400,
-			height: 400,
-			border: '1px solid #ccc'
+			height: 600,
+			width: 1000,
+			padding: 10,
+			border: '1px solid #ccc',
+			display: 'flex',
+			backgroundColor: 'white'
 		};
 		return <div className="dashboard" style={styles}>
-			{ _.map(this.state.widgets, function(w) {
-				return <Widget {...w} />;
-			}) }
+				<Widget { ...this.state.widget } />
 		</div>;
 	}
 });
