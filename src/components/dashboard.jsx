@@ -1,12 +1,32 @@
 var React = require('react');
 var Widget = require('./widget.jsx');
 var _ = require('lodash');
+var color = require('color');
+
+function closest(from, selector) {
+    while (from !== null) {
+        // todo: matches should be msMatchesSelector for IE
+        if (from.matches(selector)) {
+            return from;
+        }
+        from = from.parentElement;
+    }
+}
 
 var Dashboard = React.createClass({
 	getInitialState: function() {
 		return {
-			widget: { color: 'red' }
+			widget: { root: true, color: color('white').darken(.1).hexString(), backgroundImage: ''  }
 		}
+	},
+
+	onDragOver: function(e) {
+		e.preventDefault();
+		var isFiles = (e.dataTransfer.types.indexOf("Files") >= 0);
+		if (isFiles) {
+            e.dataTransfer.dropEffect = 'copy';
+            e.dataTransfer.effectAllowed = 'copy';
+        }
 	},
 
 	render: function() {
@@ -18,9 +38,9 @@ var Dashboard = React.createClass({
 			display: 'flex',
 			backgroundColor: 'white'
 		};
-		return <div className="dashboard" style={styles}>
-				<Widget { ...this.state.widget } />
-		</div>;
+		return 	<div className="dashboard" style={styles} onDragOver={ this.onDragOver }>
+					<Widget { ...this.state.widget } />
+				</div>;
 	}
 });
 
