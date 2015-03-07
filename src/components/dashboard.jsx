@@ -33,8 +33,8 @@ var Dashboard = React.createClass({
 
 	render: function() {
 		var styles = {
-			height: 600,
-			width: 1000,
+			height: '100%',
+			width: '100%',
 			padding: 10,
 			border: '1px solid #ccc',
 			display: 'flex',
