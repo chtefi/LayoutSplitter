@@ -3,8 +3,6 @@ var Cell = require('./cell.jsx');
 var _ = require('lodash');
 var color = require('color');
 
-window.React = React;
-
 function closest(from, selector) {
     while (from !== null) {
         // TODO: matches should be msMatchesSelector for IE

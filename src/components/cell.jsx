@@ -3,16 +3,18 @@ var _ = require('lodash');
 var color = require('color');
 
 function getDirection(e) {
-	var left = e.target.offsetLeft;
-	var top = e.target.offsetTop;
-	var width = e.target.offsetWidth;
-	var height = e.target.offsetHeight;
+	var rect = e.target.getBoundingClientRect();
+	// handle scroll of the body
+	var bodyRect = document.documentElement.getBoundingClientRect();
 
 	var mouseLeft = e.pageX;
 	var mouseTop = e.pageY;
 
-	var relativeLeft = (mouseLeft - left) / width;
-	var relativeTop = (mouseTop - top) / height;
+	// i want something between 0 and 1.0
+	// TODO the scroll of the body is not sufficient. we need something more general : check for every .parent.parent etc.
+	// TODO test with multiple scrollable containers
+	var relativeLeft = (mouseLeft - rect.left + bodyRect.left) / rect.width;
+	var relativeTop = (mouseTop - rect.top + bodyRect.top) / rect.height;
 
 	var isTopRight = (relativeLeft > relativeTop);
 	var isBottomLeft = !isTopRight;
