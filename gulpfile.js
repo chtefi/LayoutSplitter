@@ -23,7 +23,7 @@ gulp.task('js', function() {
     browserify(PATHS.app)
         .transform(reactify)
         .bundle()
-        //.pipe(uglify(null, { sourcemap: false }))
+        .pipe(uglify(null, { sourcemap: false }))
         .on('error', function(err) { console.error('js', err); })
         .pipe(source(JS_BUNDLE_NAME))        
         .pipe(gulp.dest(PATHS.build))
